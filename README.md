@@ -16,6 +16,7 @@ Follow the submission instructions from Lab 01.
 
 ## Configuration
 _Your repository must include:_
+
 ```
 09-sql-joins-relations
 └── starter-code
