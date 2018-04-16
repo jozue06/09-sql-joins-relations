@@ -35,7 +35,7 @@ app.get('/articles', (request, response) => {
 
 app.post('/articles', (request, response) => {
   client.query(
-    'INSERT INTO authors (author, "authorUrl") VALUES($1, $2) ON CONFLICT DO NOTHING;',
+    'INSERT INTO authors (author, "authorUrl") VALUES ($1, $2) ON CONFLICT DO NOTHING;',
     [request.body.author,
       request.body.authorUrl],
     function(err) {
@@ -47,7 +47,9 @@ app.post('/articles', (request, response) => {
 
   function queryTwo() {
     client.query(
-      `SELECT author_id FROM authors WHERE author=$1;`,
+      `SELECT author_id 
+      FROM authors 
+      WHERE author=$1;`,
       [request.body.author],
       function(err, result) {
         if (err) console.error(err);
